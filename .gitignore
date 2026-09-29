@@ -1,0 +1,27 @@
+# Python environments and bytecode
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Local secrets and environment files
+.env
+.env.*
+!.env.example
+
+# Temporary invoice uploads and local data
+uploads/
+temp_uploads/
+
+# Internal planning notes excluded from the public portfolio repository
+/master_prompt.md
+/PLAN.md
+/instrucitons_for_portfolio.md
+/inline_ai/
+/CLIENT_ACQUISITION_AND_TRUST_PLAN.md
+/CODEX_PROJECTS_TOOLS_AND_CLIENT_PLAN.md
+/INVOICE_READER_PROJECT_BRIEF.md
+
+# Operating-system files
+.DS_Store
+Thumbs.db
