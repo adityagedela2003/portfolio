@@ -1,24 +1,21 @@
-# AI & Full-Stack Developer Portfolio
+# AI-Native Systems & Agents Portfolio
 
-A personal portfolio page for selected AI projects and workflow automation experiments. It is framed as an independent developer's portfolio, with a secondary invitation to discuss work. The notes describe an InlineDoubt prototype and an Invoice-Extract blueprint; neither has a public demo linked here.
+A static portfolio focused on AI-native product experiences, AI agents, multi-step workflows, tool use, grounded context, structured outputs, and human review.
+
+## Live site
+
+https://adityagedela2003.github.io/portfolio/
 
 ## Preview locally
 
-Open `index.html` in a browser. The page is static and does not need a build step or backend.
+Open `index.html` in a browser. The site uses plain HTML, CSS, and JavaScript and does not need a build step or backend.
 
-## Before publishing
+## Project status
 
-- Replace `ADD-YOUR-EMAIL` in `index.html` with the portfolio owner's email address.
-- Add the portfolio owner's name and confirm the preferred professional details.
-- Add real repository, demo, or case-study links if available.
-- The InlineDoubt notes describe a built prototype, but its source and demo are not included in this workspace. Invoice-Extract is a blueprint. Keep these status labels accurate until verified project links are added.
-- The Google Fonts stylesheet is loaded from Google Fonts. A system-font fallback is provided if it is unavailable.
+- InlineDoubt AI is presented as a prototype; its source and public demo are not linked here.
+- Invoice-Extract AI is presented as a blueprint; it is not a live demo.
+- Keep these labels accurate and add public source, demo, or case-study links when they are ready.
 
-## Publish plan
+## Publishing
 
-1. Review the local page and confirm its content and contact details.
-2. Create a public GitHub repository named `portfolio` and push these files.
-3. Import the GitHub repository into Vercel and deploy it as a static site.
-4. Open the Vercel URL and confirm the page and all links work, then share that URL.
-
-No repository has been created and no site has been deployed yet.
+The public `main` branch is deployed with GitHub Pages from the repository root. Pushing an update to `main` triggers a new deployment.
