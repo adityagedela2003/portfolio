@@ -140,6 +140,10 @@
 
         <div class="inline-doubt-input-wrapper">
           <textarea class="inline-doubt-textarea" rows="2" placeholder="What is unclear? Ask your doubt..."></textarea>
+          <label class="inline-doubt-consent">
+            <input class="inline-doubt-consent-checkbox" type="checkbox">
+            <span>I agree to send this selected text and question to our server and Google Gemini. <a href="https://github.com/adityagedela2003/portfolio/blob/main/inline-automation-agent/PRIVACY.md" target="_blank" rel="noopener noreferrer">Privacy details</a></span>
+          </label>
           <div class="inline-doubt-actions">
             <span class="inline-doubt-hint">Ctrl + Enter</span>
             <button class="inline-doubt-submit-btn">
@@ -190,6 +194,7 @@
 
     const submitBtn = box.querySelector('.inline-doubt-submit-btn');
     const textarea = box.querySelector('.inline-doubt-textarea');
+    const consentCheckbox = box.querySelector('.inline-doubt-consent-checkbox');
     const responseContainer = box.querySelector('.inline-doubt-response-container');
 
     setTimeout(() => textarea.focus(), 50);
@@ -204,6 +209,16 @@
     submitBtn.addEventListener('click', submitDoubt);
 
     async function submitDoubt() {
+      if (!consentCheckbox.checked) {
+        responseContainer.innerHTML = `
+          <div class="inline-doubt-response">
+            <div class="inline-doubt-error">Please agree before sending the selected text and question.</div>
+          </div>
+        `;
+        consentCheckbox.focus();
+        return;
+      }
+
       const question = textarea.value.trim();
       if (!question) {
         textarea.focus();

@@ -4,13 +4,14 @@ InlineDoubt AI is a Chrome extension that lets you select text on a webpage, ask
 
 ## Current status
 
-The extension sends requests through its service worker to the FastAPI backend hosted at `https://inlinedoubt-api.onrender.com`. The Render free service may take about a minute to wake after idle periods. The backend is currently an early demo and does not yet have request-rate limits.
+The extension sends requests through its service worker to the FastAPI backend hosted at `https://inlinedoubt-api.onrender.com`. The Render free service may take about a minute to wake after idle periods. The backend applies best-effort per-IP limits of 10 requests per minute and 60 per hour; these in-memory counters reset when the service restarts and are intended for a small demo.
 
 ## Project structure
 
 - `manifest.json`, `content.js`, `background.js`, `styles.css`: Chrome Manifest V3 extension.
 - `backend/main.py`: FastAPI API that sends the selected passage and question to Gemini.
 - `backend/requirements.txt`: Python backend dependencies.
+- `PRIVACY.md`: Data-flow and privacy notice.
 
 ## Run locally
 
@@ -29,7 +30,7 @@ To use a local backend instead, change `BACKEND_URL` in `background.js` to `http
 
 ## Privacy note
 
-When you submit a question, the selected text and question are sent to the hosted backend and then to the Gemini API to generate an answer. Do not submit private or sensitive text. Request-rate limits and Chrome Web Store privacy disclosures still need to be added before broad public distribution.
+Before sending, the extension asks you to agree to send the selected text and question to the hosted backend and Google Gemini. Read [PRIVACY.md](PRIVACY.md) for details, including the prototype rate-limit limitations. Do not submit private or sensitive text. This remains a small demo, not a production service.
 
 ## License
 

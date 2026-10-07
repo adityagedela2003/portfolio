@@ -273,6 +273,29 @@
   box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2) !important;
 }
 
+.inline-doubt-consent {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 7px !important;
+  color: #94a3b8 !important;
+  font-size: 10.5px !important;
+  line-height: 1.5 !important;
+}
+
+.inline-doubt-consent-checkbox {
+  flex: 0 0 auto !important;
+  width: 13px !important;
+  height: 13px !important;
+  margin: 1px 0 0 !important;
+  accent-color: #a78bfa !important;
+}
+
+.inline-doubt-consent a {
+  color: #c4b5fd !important;
+  text-decoration: underline !important;
+  text-underline-offset: 2px !important;
+}
+
 /* Actions Row */
 .inline-doubt-actions {
   display: flex !important;
