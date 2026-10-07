@@ -6,7 +6,7 @@ InlineDoubt AI lets you request an explanation of text you select on a webpage. 
 
 ## Data processed
 
-When you check the in-extension consent box and submit a question, InlineDoubt processes:
+On first use, the extension asks you to agree before sending a question. Your consent preference is stored locally in Chrome extension storage on that device, so the extension does not ask again for each question. You can clear the extension's stored data in Chrome or uninstall the extension to remove it. After consent, when you submit a question, InlineDoubt processes:
 
 - The text you selected.
 - The question you typed.

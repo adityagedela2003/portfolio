@@ -12,7 +12,7 @@ Open `index.html` in a browser. The site uses plain HTML, CSS, and JavaScript an
 
 ## Project status
 
-- InlineDoubt AI is presented as a prototype; its source and public demo are not linked here.
+- InlineDoubt AI is a working prototype. Its portfolio card links to the public source and hosted backend status; the repository README explains how to load the extension locally.
 - Invoice-Extract AI is presented as a blueprint; it is not a live demo.
 - Keep these labels accurate and add public source, demo, or case-study links when they are ready.
 

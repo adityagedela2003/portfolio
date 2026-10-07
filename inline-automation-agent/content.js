@@ -195,7 +195,13 @@
     const submitBtn = box.querySelector('.inline-doubt-submit-btn');
     const textarea = box.querySelector('.inline-doubt-textarea');
     const consentCheckbox = box.querySelector('.inline-doubt-consent-checkbox');
+    const consentLabel = box.querySelector('.inline-doubt-consent');
     const responseContainer = box.querySelector('.inline-doubt-response-container');
+
+    // Ask for consent on first use, then remember it on this device.
+    chrome.storage.local.get({ inlineDoubtConsent: false }, (settings) => {
+      if (settings.inlineDoubtConsent) consentLabel.hidden = true;
+    });
 
     setTimeout(() => textarea.focus(), 50);
 
@@ -209,7 +215,8 @@
     submitBtn.addEventListener('click', submitDoubt);
 
     async function submitDoubt() {
-      if (!consentCheckbox.checked) {
+      const settings = await chrome.storage.local.get({ inlineDoubtConsent: false });
+      if (!settings.inlineDoubtConsent && !consentCheckbox.checked) {
         responseContainer.innerHTML = `
           <div class="inline-doubt-response">
             <div class="inline-doubt-error">Please agree before sending the selected text and question.</div>
@@ -230,6 +237,10 @@
       responseContainer.innerHTML = '';
 
       try {
+        if (!settings.inlineDoubtConsent) {
+          await chrome.storage.local.set({ inlineDoubtConsent: true });
+          consentLabel.hidden = true;
+        }
         const result = await chrome.runtime.sendMessage({
           type: 'inline-doubt-ask',
           snippet,

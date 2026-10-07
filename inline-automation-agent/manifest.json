@@ -3,6 +3,9 @@
   "name": "InlineDoubt AI",
   "version": "1.0.0",
   "description": "Contextual inline AI doubts for chat interfaces and web pages.",
+  "permissions": [
+    "storage"
+  ],
   "host_permissions": [
     "https://inlinedoubt-api.onrender.com/*"
   ],
