@@ -282,10 +282,6 @@
   line-height: 1.5 !important;
 }
 
-.inline-doubt-consent[hidden] {
-  display: none !important;
-}
-
 .inline-doubt-consent-checkbox {
   flex: 0 0 auto !important;
   width: 13px !important;
