@@ -3,8 +3,6 @@
 
   let floatingBtn = null;
   let activeSelectionData = null;
-  const BACKEND_URL = 'http://localhost:8000/api/doubt';
-
   const SPARKS_ICON = `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>`;
   const MINIMIZE_ICON = `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>`;
 
@@ -217,21 +215,17 @@
       responseContainer.innerHTML = '';
 
       try {
-        const response = await fetch(BACKEND_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ snippet, question })
+        const result = await chrome.runtime.sendMessage({
+          type: 'inline-doubt-ask',
+          snippet,
+          question
         });
 
-        if (!response.ok) {
-          const errData = await response.json().catch(() => ({ detail: 'Failed to connect to backend' }));
-          throw new Error(errData.detail || `Server error ${response.status}`);
+        if (!result?.ok) {
+          throw new Error(result?.error || 'Failed to connect to backend');
         }
 
-        const data = await response.json();
-        renderAnswer(data.answer);
+        renderAnswer(result.answer);
       } catch (err) {
         responseContainer.innerHTML = `
           <div class="inline-doubt-response">

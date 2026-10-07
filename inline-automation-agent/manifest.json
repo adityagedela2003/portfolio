@@ -3,10 +3,12 @@
   "name": "InlineDoubt AI",
   "version": "1.0.0",
   "description": "Contextual inline AI doubts for chat interfaces and web pages.",
-  "permissions": [
-    "activeTab",
-    "storage"
+  "host_permissions": [
+    "http://localhost/*"
   ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "content_scripts": [
     {
       "matches": [

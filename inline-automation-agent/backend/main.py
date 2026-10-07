@@ -7,8 +7,7 @@ if libs_dir not in sys.path:
     sys.path.insert(0, libs_dir)
 
 from fastapi import FastAPI, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from google import genai
 import dotenv
 
@@ -19,22 +18,13 @@ dotenv.load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
 
 app = FastAPI(title="InlineDoubt AI Backend Proxy")
 
-# Enable CORS for browser content script requests
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 # Initialize Gemini Client using API key from environment variable
 api_key = os.getenv("GEMINI_API_KEY")
 client = genai.Client(api_key=api_key) if api_key else None
 
 class DoubtReq(BaseModel):
-    snippet: str
-    question: str
+    snippet: str = Field(min_length=1, max_length=8_000)
+    question: str = Field(min_length=1, max_length=2_000)
 
 @app.get("/")
 def read_root():
