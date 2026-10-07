@@ -2,7 +2,7 @@
 
 InlineDoubt AI is a Chrome extension that lets you select text on a webpage, ask a question about it, and see an AI explanation inline without losing your place.
 
-![InlineDoubt AI answering a question beside the selected passage](<inline ai chat draft.jpg>)
+![InlineDoubt AI panel showing the selected context, question, and explanation](assets/inline-doubt-card.png)
 
 ## Current status
 
