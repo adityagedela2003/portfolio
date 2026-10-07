@@ -4,6 +4,8 @@ InlineDoubt AI is a Chrome extension that lets you select text on a webpage, ask
 
 ![InlineDoubt AI panel showing the selected context, question, and explanation](assets/inline-doubt-card.png)
 
+[Watch the 27-second InlineDoubt AI demo](assets/inlinedoubt-demo-27s.mp4)
+
 ## Current status
 
 The extension sends requests through its service worker to the FastAPI backend hosted at `https://inlinedoubt-api.onrender.com`. The Render free service may take about a minute to wake after idle periods. The backend applies best-effort per-IP limits of 10 requests per minute and 60 per hour; these in-memory counters reset when the service restarts and are intended for a small demo.
