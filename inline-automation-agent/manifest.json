@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Contextual inline AI doubts for chat interfaces and web pages.",
   "host_permissions": [
-    "http://localhost/*"
+    "https://inlinedoubt-api.onrender.com/*"
   ],
   "background": {
     "service_worker": "background.js"

@@ -1,6 +1,6 @@
 'use strict';
 
-const BACKEND_URL = 'http://localhost:8000/api/doubt';
+const BACKEND_URL = 'https://inlinedoubt-api.onrender.com/api/doubt';
 const MAX_SNIPPET_LENGTH = 8_000;
 const MAX_QUESTION_LENGTH = 2_000;
 
